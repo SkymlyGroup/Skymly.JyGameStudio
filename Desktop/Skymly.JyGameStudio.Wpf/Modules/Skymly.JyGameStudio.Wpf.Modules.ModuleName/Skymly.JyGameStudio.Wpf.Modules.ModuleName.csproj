@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>Skymly.JyGameStudio.Wpf.Modules.ModuleName</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Skymly.JyGameStudio.Wpf.Core\Skymly.JyGameStudio.Wpf.Core.csproj" />
+    <ProjectReference Include="..\..\Services\Skymly.JyGameStudio.Wpf.Services.Interfaces\Skymly.JyGameStudio.Wpf.Services.Interfaces.csproj" />
+  </ItemGroup>
+</Project>
