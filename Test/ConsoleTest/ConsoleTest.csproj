@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NLua" Version="1.5.9" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Common\Skymly.JyGameTools.Models\Skymly.JyGameTools.Models.csproj" />
     <ProjectReference Include="..\..\Tools\Tools.csproj" />
   </ItemGroup>

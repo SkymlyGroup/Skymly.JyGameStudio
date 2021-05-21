@@ -11,9 +11,7 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-            Aoyi_Test1();
-            Aoyi_Test2();
-            Aoyi_Test3();
+            LuaTest.UseLuaTable();
             Console.WriteLine("Hello World!");
         }
 
@@ -28,9 +26,6 @@ namespace ConsoleTest
             Console.WriteLine(xml2);
             Directory.CreateDirectory("ScriptsResult");
             File.WriteAllText("ScriptsResult/aoyis.xml", xml2);
-
-
-
         }
         static void Aoyi_Test2()
         {
