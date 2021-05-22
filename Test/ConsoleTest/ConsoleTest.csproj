@@ -23,7 +23,7 @@
     <None Update="Scripts\globaltrigger.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Scripts\grow_templates.xml">
+    <None Update="Scripts\GrowTemplates.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Scripts\internal_skills.xml">
