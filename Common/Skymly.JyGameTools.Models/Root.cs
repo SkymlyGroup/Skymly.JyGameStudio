@@ -13,8 +13,36 @@ namespace Skymly.JyGameTools.Models
     [XmlType(TypeName = "root")]
     public class AoyiRoot
     {
+
+
+        public void Complated()
+        {
+            if (aoyis!=null)
+            {
+                foreach (var aoyi in aoyis)
+                {
+                    foreach (var cond in aoyi.AoyiConditions)
+                    {
+                        cond.AoyiId = aoyi.Id;
+                    }
+                }
+            }
+        }
+
+        private List<Aoyi> aoyis;
+
         [XmlElement("aoyi")]
-        public List<Aoyi> Aoyis { get; set; }
+        public List<Aoyi> Aoyis 
+        { 
+            get
+            { 
+                Complated(); 
+                return aoyis; 
+            }
+            set => aoyis = value;
+        }
+
+
     }
 
 

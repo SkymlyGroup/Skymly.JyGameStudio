@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Skymly.JyGameStudio.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Skymly.JyGameStudio.Api.Controllers.AoyiController.GetAoyi">
+            <summary>
+            获取全部奥义
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Skymly.JyGameStudio.Api.Controllers.AoyiController.GetAoyiRoot">
+            <summary>
+            获取全部奥义，默认为XML结构
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Skymly.JyGameStudio.Api.Controllers.AoyiController.GetAoyi(System.Guid)">
+            <summary>
+            根据ID获取奥义
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
