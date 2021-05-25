@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\Skymly.JyGameTools.Models\Skymly.JyGameTools.Models.csproj" />
+    <ProjectReference Include="..\Skymly.JyGameStudio.Data\Skymly.JyGameStudio.Data.csproj" />
     <ProjectReference Include="..\Tools\Tools.csproj" />
   </ItemGroup>
 

@@ -1,0 +1,55 @@
+﻿@page "/Aoyis"
+@using Skymly.JyGameStudio.BlazorApp.Data;
+@using Skymly.JyGameTools.Models; 
+@inject AoyiService  aoyiService;
+<h3>奥义列表</h3>
+
+@if (aoyis == null)
+{
+    <p><em>加载中...</em></p>
+}
+else
+{
+    int index = 0;
+    <table class="table">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>名称</th>
+                <th>起手式</th>
+                <th>概率</th>
+                <th>Buff</th>
+                <th>威力增加</th>
+                <th>动画</th>
+                <th>条件数量</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var aoyi in aoyis)
+            {
+                index++;
+                var addPower = aoyi.AddPower?? "0";
+            <tr>
+                <td>@index</td>
+                <td>@aoyi.Name</td>
+                <td>@aoyi.Start</td>
+                <td>@aoyi.Probability</td>
+                <td>@aoyi.Buff</td>
+                <td>@addPower</td>
+                <td>@aoyi.Animation</td>
+                <td>@aoyi.AoyiConditions.Count</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IEnumerable<Aoyi> aoyis;
+
+    protected override async Task OnInitializedAsync()
+    {
+        //await Task.Delay(5000);//测试一下加载中
+        aoyis = await aoyiService.Get();
+    }
+}

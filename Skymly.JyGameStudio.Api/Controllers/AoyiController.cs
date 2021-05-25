@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.Web.CodeGeneration;
 
-using Skymly.JyGameStudio.Api.Data;
+using Skymly.JyGameStudio.Data;
 using Skymly.JyGameTools.Models;
 using Tools;
 namespace Skymly.JyGameStudio.Api.Controllers
