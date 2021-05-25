@@ -9,6 +9,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Skymly.JyGameStudio.Wpf.Core\Skymly.JyGameStudio.Wpf.Core.csproj" />
-    <ProjectReference Include="..\..\Services\Skymly.JyGameStudio.Wpf.Services.Interfaces\Skymly.JyGameStudio.Wpf.Services.Interfaces.csproj" />
   </ItemGroup>
 </Project>

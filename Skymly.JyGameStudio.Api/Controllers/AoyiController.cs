@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.VisualStudio.Web.CodeGeneration;
 
 using Skymly.JyGameStudio.Api.Data;
 using Skymly.JyGameTools.Models;
-
+using Tools;
 namespace Skymly.JyGameStudio.Api.Controllers
 {
     [Route("api/[controller]")]
@@ -18,7 +19,7 @@ namespace Skymly.JyGameStudio.Api.Controllers
     public class AoyiController : ControllerBase
     {
         private readonly ScriptsContext _context;
-        private readonly ILogger<AoyiController> _logger;
+        private ILogger<AoyiController> _logger;
 
         public AoyiController(ScriptsContext context, ILogger<AoyiController> logger)
         {
@@ -37,14 +38,18 @@ namespace Skymly.JyGameStudio.Api.Controllers
         }
 
         /// <summary>
-        /// 获取全部奥义，默认为XML结构
+        /// 获取全部奥义,XML结构
         /// </summary>
         /// <returns></returns>
-        [HttpGet("root")]
-        [Produces("application/xml")]
-        public async Task<ActionResult<AoyiRoot>> GetAoyiRoot()
+        [HttpGet("xml")]
+        public async Task<ActionResult<string>> GetAoyiRoot()
         {
-            return new AoyiRoot { Aoyis = await _context.Aoyis.ToListAsync() };
+            var root = new AoyiRoot
+            {
+                Aoyis = await _context.Aoyis.Include(v => v.AoyiConditions).ToListAsync()
+            };
+            var xml = XmlSerializeTool.SerializeToString(root);
+            return xml;
         }
 
         /// <summary>
@@ -132,8 +137,12 @@ namespace Skymly.JyGameStudio.Api.Controllers
         {
             try
             {
-                var xml = System.IO.File.ReadAllText("Scripts/aoyis.xml");
-                var aoyis = Tools.XmlSerializeTool.DeserializeFromString<AoyiRoot>(xml).Aoyis;
+                var old = await _context.Aoyis.Include(v => v.AoyiConditions).ToListAsync();
+                _context.RemoveRange(old);
+                await _context.SaveChangesAsync();
+                var xml = System.IO.File.ReadAllText("Mod/Scripts/aoyis.xml");
+                _logger.LogInformation(xml);
+                var aoyis = XmlSerializeTool.DeserializeFromString<AoyiRoot>(xml).Aoyis;
                 await _context.AddRangeAsync(aoyis);
                 await _context.SaveChangesAsync();
                 return aoyis;

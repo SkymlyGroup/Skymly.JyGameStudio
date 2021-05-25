@@ -1,17 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <AssemblyName>Skymly.JyGameStudio.Wpf</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Prism.DryIoc" Version="8.0.0.1909" />
+    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Skymly.JyGameStudio.Wpf.Core\Skymly.JyGameStudio.Wpf.Core.csproj" />
-    <ProjectReference Include="..\Modules\Skymly.JyGameStudio.Wpf.Modules.ModuleName\Skymly.JyGameStudio.Wpf.Modules.ModuleName.csproj" />
-    <ProjectReference Include="..\Services\Skymly.JyGameStudio.Wpf.Services.Interfaces\Skymly.JyGameStudio.Wpf.Services.Interfaces.csproj" />
-    <ProjectReference Include="..\Services\Skymly.JyGameStudio.Wpf.Services\Skymly.JyGameStudio.Wpf.Services.csproj" />
   </ItemGroup>
 </Project>

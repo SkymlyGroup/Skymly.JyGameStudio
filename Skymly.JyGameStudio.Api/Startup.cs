@@ -37,28 +37,28 @@ namespace Skymly.JyGameStudio.Api
             services.AddDbContext<ScriptsContext>(options =>
                    options.UseSqlServer(Configuration.GetConnectionString(nameof(ScriptsContext))));
             services.AddDatabaseDeveloperPageExceptionFilter();
+
             services.AddCors(options =>
             {
                 options.AddPolicy(AllowSpecificOrigins,
                 builder =>
                 {
-                    builder.AllowAnyHeader()
-                           .AllowAnyMethod()
+                    builder.AllowAnyOrigin()
+                           .AllowAnyHeader()
                            //.AllowCredentials()
-                           .AllowAnyOrigin();
+                           .AllowAnyMethod()
+                           .Build();
                 });
             });
 
-            services.AddControllers()
-                    .AddXmlSerializerFormatters();
+            services.AddControllers().AddJsonOptions(opt => opt.JsonSerializerOptions.PropertyNamingPolicy = null);//保留Json大小写原样
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Skymly.JyGameStudio.Api", Version = "v1" });
                 var xmlPath = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Skymly.JyGameStudio.Api.xml");
                 c.IncludeXmlComments(xmlPath);//启用swagger注释
             });
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

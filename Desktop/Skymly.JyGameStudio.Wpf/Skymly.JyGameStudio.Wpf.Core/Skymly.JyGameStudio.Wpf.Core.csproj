@@ -5,6 +5,6 @@
     <AssemblyName>Skymly.JyGameStudio.Wpf.Core</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
 </Project>

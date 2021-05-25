@@ -17,13 +17,16 @@ namespace Skymly.JyGameTools.Models
 
         public void Complated()
         {
-            if (aoyis!=null)
+            if (aoyis != null)
             {
                 foreach (var aoyi in aoyis)
                 {
-                    foreach (var cond in aoyi.AoyiConditions)
+                    if (aoyi.AoyiConditions != null)
                     {
-                        cond.AoyiId = aoyi.Id;
+                        foreach (var cond in aoyi.AoyiConditions)
+                        {
+                            cond.AoyiId = aoyi.Id;
+                        }
                     }
                 }
             }
@@ -32,12 +35,12 @@ namespace Skymly.JyGameTools.Models
         private List<Aoyi> aoyis;
 
         [XmlElement("aoyi")]
-        public List<Aoyi> Aoyis 
-        { 
+        public List<Aoyi> Aoyis
+        {
             get
-            { 
-                Complated(); 
-                return aoyis; 
+            {
+                Complated();
+                return aoyis;
             }
             set => aoyis = value;
         }

@@ -14,14 +14,10 @@ namespace Skymly.JyGameTools.Models
     [Table(nameof(Aoyi))]
     public class Aoyi
     {
-        public Aoyi()
-        {
-            Id = Guid.NewGuid();
-        }
 
         [Key]
         [XmlIgnore]
-        public Guid Id {get;set;}
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         [XmlAttribute("start")]
         public string Start { get; set; }
@@ -45,10 +41,8 @@ namespace Skymly.JyGameTools.Models
         [XmlElement("condition")]
         public List<AoyiCondition> AoyiConditions { get; set; }
 
-        
-
         [XmlAttribute("addPower")]
-        public string PowerAdd { get; set; }
+        public string AddPower { get; set; }
     }
 
 
@@ -58,14 +52,10 @@ namespace Skymly.JyGameTools.Models
     [Table(nameof(AoyiCondition))]
     public class AoyiCondition
     {
-        public AoyiCondition()
-        {
-            Id = Guid.NewGuid();
-        }
-
+     
         [XmlIgnore]
         [Key]
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         [XmlIgnore]
         [ForeignKey(nameof(Aoyi))]
