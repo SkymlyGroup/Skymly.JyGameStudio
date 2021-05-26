@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Skymly.JyGameTools.Models
+namespace Skymly.JyGameStudio.Models
 {
 
     [Serializable]

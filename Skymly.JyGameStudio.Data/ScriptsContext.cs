@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Skymly.JyGameTools.Models;
+using Skymly.JyGameStudio.Models;
 
 using System;
 using System.Collections.Generic;

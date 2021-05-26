@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
-
 using Tools;
-using Skymly.JyGameTools.Models;
 using System.Xml;
 
 namespace ConsoleTest

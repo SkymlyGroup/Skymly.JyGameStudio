@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Skymly.JyGameTools.Models
+namespace Skymly.JyGameStudio.Models
 {
     [Serializable]
     [XmlRoot("root", IsNullable = false, ElementName = "animation")]

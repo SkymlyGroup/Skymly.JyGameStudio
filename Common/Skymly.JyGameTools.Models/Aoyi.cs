@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Serialization;
 
-namespace Skymly.JyGameTools.Models
+namespace Skymly.JyGameStudio.Models
 {
     [Serializable]
     [XmlRoot("root", IsNullable = false, ElementName = "aoyi")]

@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.Web.CodeGeneration;
 
 using Skymly.JyGameStudio.Data;
-using Skymly.JyGameTools.Models;
+using Skymly.JyGameStudio.Models;
 using Tools;
 namespace Skymly.JyGameStudio.Api.Controllers
 {
