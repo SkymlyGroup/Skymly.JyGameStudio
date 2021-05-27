@@ -34,7 +34,7 @@ namespace Skymly.JyGameStudio.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Aoyi>>> GetAoyi()
         {
-            return await _context.Aoyis.Include(v => v.AoyiConditions).ToListAsync();
+            return await _context.Aoyi.Include(v => v.AoyiConditions).ToListAsync();
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Skymly.JyGameStudio.Api.Controllers
         {
             var root = new AoyiRoot
             {
-                Aoyis = await _context.Aoyis.Include(v => v.AoyiConditions).ToListAsync()
+                Aoyis = await _context.Aoyi.Include(v => v.AoyiConditions).ToListAsync()
             };
             var xml = XmlSerializeTool.SerializeToString(root);
             return xml;
@@ -60,7 +60,7 @@ namespace Skymly.JyGameStudio.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Aoyi>> GetAoyi(Guid id)
         {
-            var aoyi = await _context.Aoyis.Include(v => v.AoyiConditions).FirstOrDefaultAsync(v => v.Id == id);
+            var aoyi = await _context.Aoyi.Include(v => v.AoyiConditions).FirstOrDefaultAsync(v => v.Id == id);
 
             if (aoyi == null)
             {
@@ -106,7 +106,7 @@ namespace Skymly.JyGameStudio.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Aoyi>> PostAoyi(Aoyi aoyi)
         {
-            _context.Aoyis.Add(aoyi);
+            _context.Aoyi.Add(aoyi);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetAoyi", new { id = aoyi.Id }, aoyi);
@@ -116,20 +116,20 @@ namespace Skymly.JyGameStudio.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAoyi(Guid id)
         {
-            var aoyi = await _context.Aoyis.FindAsync(id);
+            var aoyi = await _context.Aoyi.FindAsync(id);
             if (aoyi == null)
             {
                 return NotFound();
             }
 
-            _context.Aoyis.Remove(aoyi);
+            _context.Aoyi.Remove(aoyi);
             await _context.SaveChangesAsync();
             return NoContent();
         }
 
         private bool AoyiExists(Guid id)
         {
-            return _context.Aoyis.Any(e => e.Id == id);
+            return _context.Aoyi.Any(e => e.Id == id);
         }
 
         [HttpPost("ResetData")]
@@ -137,7 +137,7 @@ namespace Skymly.JyGameStudio.Api.Controllers
         {
             try
             {
-                var old = await _context.Aoyis.Include(v => v.AoyiConditions).ToListAsync();
+                var old = await _context.Aoyi.Include(v => v.AoyiConditions).ToListAsync();
                 _context.RemoveRange(old);
                 await _context.SaveChangesAsync();
                 var xml = System.IO.File.ReadAllText("Mod/Scripts/aoyis.xml");

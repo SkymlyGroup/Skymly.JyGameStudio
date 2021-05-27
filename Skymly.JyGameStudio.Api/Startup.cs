@@ -17,6 +17,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Serialization;
 using Skymly.JyGameStudio.Data;
+using Serilog;
 
 namespace Skymly.JyGameStudio.Api
 {
@@ -66,6 +67,11 @@ namespace Skymly.JyGameStudio.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Skymly.JyGameStudio.Api v1"));
+
+            /*
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -77,12 +83,14 @@ namespace Skymly.JyGameStudio.Api
                 //正式环境再启用Https
                 app.UseHttpsRedirection();
             }
+            */
 
             app.UseCors(AllowSpecificOrigins);
 
             app.UseRouting();
 
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {

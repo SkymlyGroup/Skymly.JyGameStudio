@@ -78,6 +78,12 @@ namespace Skymly.JyGameStudio.Models
     [Table(nameof(AoyiCondition))]
     public class AoyiCondition
     {
+        public AoyiCondition()
+        {
+
+        }
+
+
         [Display(Name = "主键")]
         [AutoGenerateColumn(Ignore = true)]
         [XmlIgnore]

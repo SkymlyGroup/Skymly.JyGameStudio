@@ -55,7 +55,7 @@ namespace Skymly.JyGameStudio.BlazorApp.Shared.Data
 
         public override async Task<QueryData<Aoyi>> QueryAsync(QueryPageOptions options)
         {
-            Items = await DataContext.Aoyis.Include(v => v.AoyiConditions).ToListAsync();
+            Items = await DataContext.Aoyi.Include(v => v.AoyiConditions).ToListAsync();
             var items = Items.AsEnumerable();
             var isSearched = false;
             // 处理高级查询

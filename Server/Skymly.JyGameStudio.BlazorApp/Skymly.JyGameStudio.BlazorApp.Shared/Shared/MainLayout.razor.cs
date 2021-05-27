@@ -2,6 +2,9 @@
 
 using Microsoft.AspNetCore.Components.Routing;
 
+using Skymly.JyGameStudio.BlazorApp.Shared.Pages;
+
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -52,14 +55,36 @@ namespace Skymly.JyGameStudio.BlazorApp.Shared.Shared
         {
             var menus = new List<MenuItem>
             {
-                new MenuItem() { Text = "返回组件库", Icon = "fa fa-fw fa-home", Url = "https://www.blazor.zone/components" },
-                new MenuItem() { Text = "Index", Icon = "fa fa-fw fa-fa", Url = "/" , Match = NavLinkMatch.All},
-                new MenuItem() { Text = "Counter", Icon = "fa fa-fw fa-check-square-o", Url = "/counter" },
-                new MenuItem() { Text = "FetchData", Icon = "fa fa-fw fa-database", Url = "fetchdata" },
-                new MenuItem() { Text = "Table", Icon = "fa fa-fw fa-table", Url = "table" },
-                new MenuItem() { Text = "奥义", Icon = "fa fa-fw fa-table", Url = "AoyiPage" },
-            };
+                new MenuItem() { Text = "首页", Icon = "fa fa-fw fa-fa", Url = "Index" },
+                
+                //new MenuItem() { Text = "Table", Icon = "fa fa-fw fa-table", Url = "table" },
+                new MenuItem("原版游戏脚本",null,"fa fa-fw fa-check-square-o")
+                {
+                    Target="_blank",
+                   Items =new List<MenuItem>
+                   {
+                        new MenuItem() { Text = "奥义", Icon = "fa fa-fw fa-table", Url = "AoyiPage" },
+                        new MenuItem() { Text = "战斗", Icon = "fa fa-fw fa-table", Target="_blank"  },
+                        new MenuItem() { Text = "剧情", Icon = "fa fa-fw fa-table", Target="_blank"  },
+                        new MenuItem() { Text = "技能", Icon = "fa fa-fw fa-table", Target="_blank" },
+                        new MenuItem() { Text = "内功", Icon = "fa fa-fw fa-table", Target="_blank" },
+                        new MenuItem() { Text = "特技", Icon = "fa fa-fw fa-table", Target="_blank" },
+                        new MenuItem() { Text = "地图", Icon = "fa fa-fw fa-table", Target="_blank" },
+                        new MenuItem() { Text = "角色", Icon = "fa fa-fw fa-table", Target="_blank" },
+                        new MenuItem() { Text = "物品", Icon = "fa fa-fw fa-table", Target="_blank" },
 
+                   }
+                },
+                new MenuItem("其他页面",null, "fa fa-fw fa-fa")
+                {Target="_blank",
+                    Items = new List<MenuItem>
+                    {
+                        new MenuItem() { Text = "Counter", Icon = "fa fa-fw fa-check-square-o", Url = "/counter" },
+                        new MenuItem() { Text = "FetchData", Icon = "fa fa-fw fa-database", Url = "fetchdata" },
+                        new MenuItem() { Text = "BootstrapBlazor组件库", Icon = "fa fa-fw fa-home", Target= Guid.NewGuid().ToString(), Url = "https://www.blazor.zone/components" },
+                    }
+                },
+            };
             return menus;
         }
     }

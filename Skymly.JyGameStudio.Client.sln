@@ -35,11 +35,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skymly.JyGameStudio.Api", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skymly.JyGameStudio.Data", "Skymly.JyGameStudio.Data\Skymly.JyGameStudio.Data.csproj", "{39AC7638-391B-4FAF-B599-03F57E09FDFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymly.JyGameStudio.BlazorApp.Server", "Server\Skymly.JyGameStudio.BlazorApp\Skymly.JyGameStudio.BlazorApp.Server\Skymly.JyGameStudio.BlazorApp.Server.csproj", "{600E93D9-C5C2-4C88-AEFF-FEEE9DB26F93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skymly.JyGameStudio.BlazorApp.Server", "Server\Skymly.JyGameStudio.BlazorApp\Skymly.JyGameStudio.BlazorApp.Server\Skymly.JyGameStudio.BlazorApp.Server.csproj", "{600E93D9-C5C2-4C88-AEFF-FEEE9DB26F93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymly.JyGameStudio.BlazorApp.WebAssembly", "Server\Skymly.JyGameStudio.BlazorApp\Skymly.JyGameStudio.BlazorApp.WebAssembly\Skymly.JyGameStudio.BlazorApp.WebAssembly.csproj", "{FE15747F-9009-4103-ADBF-441AF181E6D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skymly.JyGameStudio.BlazorApp.WebAssembly", "Server\Skymly.JyGameStudio.BlazorApp\Skymly.JyGameStudio.BlazorApp.WebAssembly\Skymly.JyGameStudio.BlazorApp.WebAssembly.csproj", "{FE15747F-9009-4103-ADBF-441AF181E6D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymly.JyGameStudio.BlazorApp.Shared", "Server\Skymly.JyGameStudio.BlazorApp\Skymly.JyGameStudio.BlazorApp.Shared\Skymly.JyGameStudio.BlazorApp.Shared.csproj", "{76443C87-B53A-4427-8B2D-74924A5107F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skymly.JyGameStudio.BlazorApp.Shared", "Server\Skymly.JyGameStudio.BlazorApp\Skymly.JyGameStudio.BlazorApp.Shared\Skymly.JyGameStudio.BlazorApp.Shared.csproj", "{76443C87-B53A-4427-8B2D-74924A5107F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 
+using Skymly.JyGameStudio.BlazorApp.Shared;
 using Skymly.JyGameStudio.BlazorApp.Shared.Data;
 using Skymly.JyGameStudio.Data;
 
@@ -33,7 +34,7 @@ namespace Skymly.JyGameStudio.BlazorApp.Server
 
             services.AddBootstrapBlazor(setupAction: options =>
             {
-                options.AdditionalJsonAssemblies = new[] { GetType().Assembly };
+                options.AdditionalJsonAssemblies = new[] { typeof(App).Assembly };
             });
 
             services.AddRequestLocalization<IOptions<BootstrapBlazorOptions>>((localizerOption, blazorOption) =>
