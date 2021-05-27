@@ -59,6 +59,8 @@ namespace Skymly.JyGameStudio.Api
                 var xmlPath = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Skymly.JyGameStudio.Api.xml");
                 c.IncludeXmlComments(xmlPath);//启用swagger注释
             });
+
+            services.AddScoped<ScriptsContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

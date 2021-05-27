@@ -14,29 +14,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Skymly.JyGameStudio.BlazorApp.Shared.Pages
 {
-    public partial class AoyiPage: ComponentBase
+    public partial class AoyiPage : ComponentBase
     {
-        [Inject]
-        private IStringLocalizer<Foo> Localizer { get; set; }
-        [Inject]
-        private ScriptsContext Context { get; set; }
-
-        private IEnumerable<Aoyi> Aoyis { get; set; }
 
 
-        /// <summary>
-        /// 
-        /// </summary>
         protected override async Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
-            Aoyis = await Context.Aoyis.ToListAsync();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        private static IEnumerable<int> PageItemsSource => new int[] { 4, 10, 20 };
+
+        private static IEnumerable<int> PageItemsSource => new int[] { 10, 20, 100, 500 };
 
 
     }

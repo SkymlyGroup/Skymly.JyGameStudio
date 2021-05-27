@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 using Skymly.JyGameStudio.BlazorApp.Shared;
 using Skymly.JyGameStudio.BlazorApp.Shared.Data;
+using Skymly.JyGameStudio.Data;
 
 using System;
 using System.Net.Http;
@@ -27,6 +29,8 @@ namespace Skymly.JyGameStudio.BlazorApp.WebAssembly
             builder.RootComponents.Add<App>("app");
 
             builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+            builder.Services.AddDbContext<ScriptsContext>(options => options.UseSqlServer("Server=.;Database=jygamestudio;Trusted_Connection=True;MultipleActiveResultSets=true"));
 
             // 增加 BootstrapBlazor 组件
             builder.Services.AddBootstrapBlazor();
