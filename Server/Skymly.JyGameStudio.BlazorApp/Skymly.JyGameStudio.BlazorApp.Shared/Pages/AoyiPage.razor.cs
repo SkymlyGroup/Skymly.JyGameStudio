@@ -12,6 +12,8 @@ namespace Skymly.JyGameStudio.BlazorApp.Shared.Pages
     {
         protected override async Task OnInitializedAsync()
         {
+            
+
             await base.OnInitializedAsync();
         }
 

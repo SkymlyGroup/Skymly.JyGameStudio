@@ -18,6 +18,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Serialization;
 using Skymly.JyGameStudio.Data;
 using Serilog;
+using LogDashboard;
+using LogDashboard.Authorization.Filters;
 
 namespace Skymly.JyGameStudio.Api
 {
@@ -38,6 +40,10 @@ namespace Skymly.JyGameStudio.Api
             services.AddDbContext<ScriptsContext>(options =>
                    options.UseSqlServer(Configuration.GetConnectionString(nameof(ScriptsContext))));
             services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddLogDashboard(opt =>
+            {
+                opt.AddAuthorizationFilter(new LogDashboardBasicAuthFilter("admin", "123456"));
+            });
 
             services.AddCors(options =>
             {
@@ -51,7 +57,6 @@ namespace Skymly.JyGameStudio.Api
                            .Build();
                 });
             });
-
             services.AddControllers().AddJsonOptions(opt => opt.JsonSerializerOptions.PropertyNamingPolicy = null);//保留Json大小写原样
 
             services.AddSwaggerGen(c =>
@@ -84,13 +89,15 @@ namespace Skymly.JyGameStudio.Api
                 app.UseHttpsRedirection();
             }
             */
+            app.UseLogDashboard();
+
+            app.UseStaticFiles();
 
             app.UseCors(AllowSpecificOrigins);
 
             app.UseRouting();
 
             app.UseAuthorization();
-
 
             app.UseEndpoints(endpoints =>
             {

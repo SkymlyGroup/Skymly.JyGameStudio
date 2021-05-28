@@ -76,9 +76,12 @@ namespace Skymly.JyGameStudio.BlazorApp.Shared.Shared
                    }
                 },
                 new MenuItem("其他页面",null, "fa fa-fw fa-fa")
-                {Target="_blank",
+                {
+                    Target="_blank",
                     Items = new List<MenuItem>
                     {
+                        new MenuItem() { Text="日志",Icon="fa fa-fw fa-check-square-o",Url="/LogDashboard"},
+                        //new MenuItem() { Text = "Test", Icon = "fa fa-fw fa-check-square-o", Url = "/TestPage" },
                         new MenuItem() { Text = "Counter", Icon = "fa fa-fw fa-check-square-o", Url = "/counter" },
                         new MenuItem() { Text = "FetchData", Icon = "fa fa-fw fa-database", Url = "fetchdata" },
                         new MenuItem() { Text = "BootstrapBlazor组件库", Icon = "fa fa-fw fa-home", Target= Guid.NewGuid().ToString(), Url = "https://www.blazor.zone/components" },

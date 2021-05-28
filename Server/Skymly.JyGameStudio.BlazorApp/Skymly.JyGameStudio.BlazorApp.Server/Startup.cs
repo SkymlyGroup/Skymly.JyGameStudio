@@ -1,5 +1,8 @@
 ﻿using BootstrapBlazor.Components;
 
+using LogDashboard;
+using LogDashboard.Authorization.Filters;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+
+using Serilog;
 
 using Skymly.JyGameStudio.BlazorApp.Shared;
 using Skymly.JyGameStudio.BlazorApp.Shared.Data;
@@ -31,6 +36,11 @@ namespace Skymly.JyGameStudio.BlazorApp.Server
                  options.UseSqlServer(Configuration.GetConnectionString(nameof(ScriptsContext))));
             services.AddRazorPages();
             services.AddServerSideBlazor();
+
+            services.AddLogDashboard(opt =>
+            {
+                opt.AddAuthorizationFilter(new LogDashboardBasicAuthFilter("admin", "123456"));
+            });
 
             services.AddBootstrapBlazor(setupAction: options =>
             {
@@ -63,7 +73,11 @@ namespace Skymly.JyGameStudio.BlazorApp.Server
                 app.UseExceptionHandler("/Error");
             }
 
-            app.UseRequestLocalization(app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>().Value);
+            app.UseSerilogRequestLogging();
+
+            //app.UseRequestLocalization(app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>().Value);
+
+            app.UseLogDashboard();
 
             app.UseStaticFiles();
 
