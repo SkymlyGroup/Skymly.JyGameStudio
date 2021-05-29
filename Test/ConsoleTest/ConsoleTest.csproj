@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Skymly.JyGameTools.Models\Skymly.JyGameStudio.Models.csproj" />
-    <ProjectReference Include="..\..\Tools\Tools.csproj" />
+    <ProjectReference Include="..\..\Common\Tools\Tools.csproj" />
   </ItemGroup>
 
   <ItemGroup>

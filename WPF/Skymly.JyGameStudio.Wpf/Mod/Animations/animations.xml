@@ -1,0 +1,57 @@
+<user_defined_animations>
+	<animation name="caoyuan" type="role">
+		<frame tag="stand" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-stand_00000.png"/>
+		<frame tag="stand" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-stand_00003.png"/>
+		<frame tag="stand" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-stand_00006.png"/>
+		<frame tag="stand" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-stand_00009.png"/>
+		<frame tag="stand" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-stand_00014.png"/>
+		<frame tag="stand" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-stand_00018.png"/>
+		<frame tag="stand" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-stand_00021.png"/>
+		<frame tag="stand" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-stand_00024.png"/>
+		
+		<frame tag="attack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-attack_00003.png"/>
+		<frame tag="attack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-attack_00006.png"/>
+		<frame tag="attack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-attack_00009.png"/>
+		<frame tag="attack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-attack_00012.png"/>
+		<frame tag="attack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-attack_00015.png"/>
+		<frame tag="attack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-attack_00018.png"/>
+		<frame tag="attack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-attack_00021.png"/>
+		<frame tag="attack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-attack_00023.png"/>
+		<frame tag="attack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-attack_00024.png"/>
+		<frame tag="attack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-attack_00025.png"/>
+		<frame tag="attack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-attack_00027.png"/>
+		<frame tag="attack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-attack_00030.png"/>
+		<frame tag="attack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-attack_00033.png"/>
+		<frame tag="attack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-attack_00036.png"/>
+		<frame tag="attack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-attack_00039.png"/>
+		
+		<frame tag="move" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-run_00000.png"/>
+		<frame tag="move" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-run_00003.png"/>
+		<frame tag="move" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-run_00006.png"/>
+		<frame tag="move" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-run_00009.png"/>
+		<frame tag="move" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-run_00012.png"/>
+		<frame tag="move" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-run_00015.png"/>
+		<frame tag="move" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-run_00018.png"/>
+		
+		<frame tag="beattack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-be_00002.png"/>
+		<frame tag="beattack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-be_00006.png"/>
+		<frame tag="beattack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-be_00010.png"/>
+		<frame tag="beattack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-be_00014.png"/>
+		<frame tag="beattack" x="0.5" y="0.5" scale="1.3" file="caoyuan/m-dao-be_00018.png"/>
+	</animation>
+	<animation name="test" type="effect">
+		<frame tag="effect" x="0.5" y="0.5" scale="1" file="effect_test/1066.png"/>
+		<frame tag="effect" x="0.5" y="0.5" scale="1" file="effect_test/1068.png"/>
+		<frame tag="effect" x="0.5" y="0.5" scale="1" file="effect_test/1070.png"/>
+		<frame tag="effect" x="0.5" y="0.5" scale="1" file="effect_test/1072.png"/>
+		<frame tag="effect" x="0.5" y="0.5" scale="1" file="effect_test/1074.png"/>
+		<frame tag="effect" x="0.5" y="0.5" scale="1" file="effect_test/1076.png"/>
+		<frame tag="effect" x="0.5" y="0.5" scale="1" file="effect_test/1078.png"/>
+		<frame tag="effect" x="0.5" y="0.5" scale="1" file="effect_test/1080.png"/>
+		<frame tag="effect" x="0.5" y="0.5" scale="1" file="effect_test/1082.png"/>
+		<frame tag="effect" x="0.5" y="0.5" scale="1" file="effect_test/1084.png"/>
+		<frame tag="effect" x="0.5" y="0.5" scale="1" file="effect_test/1086.png"/>
+		<frame tag="effect" x="0.5" y="0.5" scale="1" file="effect_test/1088.png"/>
+		<frame tag="effect" x="0.5" y="0.5" scale="1" file="effect_test/1090.png"/>
+	</animation>
+</user_defined_animations>

@@ -1,0 +1,44 @@
+﻿<syncfusion:ChromelessWindow x:Class="Skymly.JyGameStudio.Wpf.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Icon="../Resources/appicon.ico"
+        WindowStartupLocation="CenterScreen"
+        Title="{Binding Title}" Height="450" Width="800"
+        WindowState="Maximized"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"   
+        xmlns:core="clr-namespace:Skymly.JyGameStudio.Wpf.Core;assembly=Skymly.JyGameStudio.Wpf.Core"
+        xmlns:viewmodels="clr-namespace:Skymly.JyGameStudio.Wpf.ViewModels" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        
+        x:Name="root"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF" 
+        syncfusionskin:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=FluentLight,FluentPressedEffectMode=Reveal,FluentHoverEffectMode=BackgroundAndBorder}">
+    <Window.Resources>
+        <Style x:Key="ItemStyle" TargetType="syncfusion:NavigationItem">
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <ListBox SelectedItem="{Binding CurrentItem}" BorderThickness="0.5" BorderBrush="MediumSlateBlue" ItemsSource="{Binding Views}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ContentControl  Grid.Column="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" >
+            
+        </ContentControl>
+    </Grid>
+</syncfusion:ChromelessWindow>
+

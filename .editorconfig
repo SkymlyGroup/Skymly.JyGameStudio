@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# AD0001: 分析器故障
+dotnet_diagnostic.AD0001.severity = none

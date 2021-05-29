@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Serialization;
 using BootstrapBlazor.Components;
 using System.ComponentModel;
+using System.Threading.Tasks;
 
 namespace Skymly.JyGameStudio.Models
 {
@@ -21,7 +22,6 @@ namespace Skymly.JyGameStudio.Models
 
         }
 
-
         [Key]
         [XmlIgnore]
         [Display(Name = "主键")]
@@ -30,12 +30,12 @@ namespace Skymly.JyGameStudio.Models
 
 
         [Display(Name = "起手式")]
-        [AutoGenerateColumn(Order =2, Filterable = true, Searchable = true)]
+        [AutoGenerateColumn(Order = 2, Filterable = true, Searchable = true)]
         [XmlAttribute("start")]
         public string Start { get; set; }
 
         [Display(Name = "Buff")]
-        [AutoGenerateColumn(Order =3, Filterable = true, Searchable = true)]
+        [AutoGenerateColumn(Order = 3, Filterable = true, Searchable = true)]
         [XmlAttribute("buff")]
         public string Buff { get; set; }
 

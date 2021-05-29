@@ -1,0 +1,118 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>Skymly.JyGameStudio.Wpf</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\appicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.3.3" />
+    <PackageReference Include="Syncfusion.Grid.WPF" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.Licensing" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.PivotTable.Wpf" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.PivotTableExport.Wpf" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.SfNavigationDrawer.WPF" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.Shared.WPF" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.Themes.Blend.WPF" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.Themes.FluentDark.WPF" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.Themes.FluentLight.WPF" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.Themes.Lime.WPF" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.Themes.MaterialDark.WPF" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.Themes.MaterialDarkBlue.WPF" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.Themes.MaterialLightBlue.WPF" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.Themes.Metro.WPF" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.Themes.Saffron.WPF" Version="19.1.0.65" />
+    <PackageReference Include="Syncfusion.Tools.WPF" Version="19.1.0.65" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Skymly.JyGameTools.Models\Skymly.JyGameStudio.Models.csproj" />
+    <ProjectReference Include="..\..\Common\Tools\Tools.csproj" />
+    <ProjectReference Include="..\Skymly.JyGameStudio.Wpf.Core\Skymly.JyGameStudio.Wpf.Core.csproj" />
+    <ProjectReference Include="..\Skymly.JyGameStudio.Wpf.Themes\Skymly.JyGameStudio.Wpf.Themes.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\appicon.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mod\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Mod\Scripts\animations.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\aoyis.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\battles.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\globaltrigger.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\GrowTemplates.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\internal_skills.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\items.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\item_triggers.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\maps.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\menpai.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\newbie.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\resource.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\resource_suggesttips.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\roles.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\shops.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\skills.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\special_skills.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\storys.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\storysCG.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\storysLudingji.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\storysPY.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\touch.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Mod\Scripts\towers.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
