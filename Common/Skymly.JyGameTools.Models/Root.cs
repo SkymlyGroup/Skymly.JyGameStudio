@@ -54,8 +54,27 @@ namespace Skymly.JyGameStudio.Models
     [XmlType(TypeName = "root")]
     public class BattleRoot
     {
+        private List<Battle> battles;
+
         [XmlElement("battle")]
-        public List<Battle> Battles { get; set; }
+        public List<Battle> Battles { get { Complated(); return battles; } set => battles = value; }
+
+        public void Complated()
+        {
+            if (battles != null)
+            {
+                foreach (var battle in battles)
+                {
+                    if (battle.BattleRoles != null)
+                    {
+                        foreach (var role in battle.BattleRoles)
+                        {
+                            role.BattleId = battle.Id;
+                        }
+                    }
+                }
+            }
+        }
     }
 
 

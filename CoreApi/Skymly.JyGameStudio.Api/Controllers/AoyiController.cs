@@ -11,6 +11,7 @@ using Microsoft.VisualStudio.Web.CodeGeneration;
 
 using Skymly.JyGameStudio.Data;
 using Skymly.JyGameStudio.Models;
+
 using Tools;
 namespace Skymly.JyGameStudio.Api.Controllers
 {
@@ -109,7 +110,7 @@ namespace Skymly.JyGameStudio.Api.Controllers
             _context.Aoyi.Add(aoyi);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAoyi", new { id = aoyi.Id }, aoyi);
+            return CreatedAtAction(nameof(GetAoyi), new { id = aoyi.Id }, aoyi);
         }
 
         // DELETE: api/Aoyi/5
@@ -133,7 +134,7 @@ namespace Skymly.JyGameStudio.Api.Controllers
         }
 
         [HttpPost("ResetData")]
-        public async ValueTask<IEnumerable<Aoyi>> ResetData()
+        public async ValueTask<ActionResult<IEnumerable<Aoyi>>> ResetData()
         {
             try
             {
@@ -141,7 +142,6 @@ namespace Skymly.JyGameStudio.Api.Controllers
                 _context.RemoveRange(old);
                 await _context.SaveChangesAsync();
                 var xml = System.IO.File.ReadAllText("Mod/Scripts/aoyis.xml");
-                _logger.LogInformation(xml);
                 var aoyis = XmlSerializeTool.DeserializeFromString<AoyiRoot>(xml).Aoyis;
                 await _context.AddRangeAsync(aoyis);
                 await _context.SaveChangesAsync();
@@ -150,7 +150,7 @@ namespace Skymly.JyGameStudio.Api.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                throw;
+                return BadRequest(ex);
             }
         }
 

@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Skymly.JyGameStudio.BlazorApp.Shared.Pages
 {
-    public partial class AoyiPage : ComponentBase
+    public partial class BattlePage : ComponentBase
     {
-        protected override async Task OnInitializedAsync()
+        
+
+        protected override Task OnInitializedAsync()
         {
-            await base.OnInitializedAsync();
+            return base.OnInitializedAsync();
         }
-
-
         private static IEnumerable<int> PageItemsSource => new int[] { 10, 20, 100, 500 };
     }
 }

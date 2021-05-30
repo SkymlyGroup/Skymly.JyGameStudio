@@ -21,8 +21,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{445CBEDE-1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blazor", "Blazor", "{95BB3518-72E4-4DF7-9D9E-8C6840B8FB6B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ref", "Ref", "{75E38261-45EF-40E1-8A0C-C88E92258B69}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skymly.JyGameStudio.Wpf", "WPF\Skymly.JyGameStudio.Wpf\Skymly.JyGameStudio.Wpf.csproj", "{85CA40EF-A438-4E0F-B3B2-F4F3AB88E7EE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skymly.JyGameStudio.Wpf.Core", "WPF\Skymly.JyGameStudio.Wpf.Core\Skymly.JyGameStudio.Wpf.Core.csproj", "{4F7D3E1B-88F5-4A88-8747-CE64B91F52BA}"
@@ -41,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skymly.JyGameStudio.BlazorA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skymly.JyGameStudio.BlazorApp.WebAssembly", "Blazor\Skymly.JyGameStudio.BlazorApp\Skymly.JyGameStudio.BlazorApp.WebAssembly\Skymly.JyGameStudio.BlazorApp.WebAssembly.csproj", "{1C71563D-6E7B-4375-AA3F-552131B745A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymly.JyGameStudio.XF", "XF\Skymly.JyGameStudio.XF\Skymly.JyGameStudio.XF\Skymly.JyGameStudio.XF.csproj", "{5D373627-BBFF-4FBA-92C7-7A56F36ABF15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skymly.JyGameStudio.XF", "XF\Skymly.JyGameStudio.XF\Skymly.JyGameStudio.XF\Skymly.JyGameStudio.XF.csproj", "{5D373627-BBFF-4FBA-92C7-7A56F36ABF15}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymly.JyGameStudio.XF.Android", "XF\Skymly.JyGameStudio.XF\Skymly.JyGameStudio.XF.Android\Skymly.JyGameStudio.XF.Android.csproj", "{6F4988E0-9553-432B-B4DA-F8134C69E9AC}"
 EndProject

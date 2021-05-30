@@ -43,6 +43,10 @@ namespace Skymly.JyGameStudio.BlazorApp.Shared.Shared
             // 模拟异步线程切换，正式代码中删除此行代码
             await Task.Yield();
 
+            ShowFooter = false;
+            IsFixedFooter = false;
+            
+
             // 菜单获取可以通过数据库获取，此处为示例直接拼装的菜单集合
             TabItemTextDictionary = new()
             {
@@ -63,8 +67,8 @@ namespace Skymly.JyGameStudio.BlazorApp.Shared.Shared
                     Target="_blank",
                    Items =new List<MenuItem>
                    {
-                        new MenuItem() { Text = "奥义", Icon = "fa fa-fw fa-table", Url = "AoyiPage" },
-                        new MenuItem() { Text = "战斗", Icon = "fa fa-fw fa-table", Target="_blank"  },
+                        new MenuItem() { Text = "奥义", Icon = "fa fa-fw fa-table", Url = "/Aoyis" },
+                        new MenuItem() { Text = "战斗", Icon = "fa fa-fw fa-table", Url = "/Battles"  },
                         new MenuItem() { Text = "剧情", Icon = "fa fa-fw fa-table", Target="_blank"  },
                         new MenuItem() { Text = "技能", Icon = "fa fa-fw fa-table", Target="_blank" },
                         new MenuItem() { Text = "内功", Icon = "fa fa-fw fa-table", Target="_blank" },
@@ -72,7 +76,6 @@ namespace Skymly.JyGameStudio.BlazorApp.Shared.Shared
                         new MenuItem() { Text = "地图", Icon = "fa fa-fw fa-table", Target="_blank" },
                         new MenuItem() { Text = "角色", Icon = "fa fa-fw fa-table", Target="_blank" },
                         new MenuItem() { Text = "物品", Icon = "fa fa-fw fa-table", Target="_blank" },
-
                    }
                 },
                 new MenuItem("其他页面",null, "fa fa-fw fa-fa")

@@ -1,0 +1,14 @@
+﻿@page "/Battles"
+<h3>Battles</h3>
+
+<Table TItem="Battle" ShowLineNo="true" IsPagination="true" PageItemsSource="@PageItemsSource"
+       IsStriped="true" IsBordered="true" ShowSkeleton="true" IsMultipleSelect="true"
+       ShowToolbar="true" ShowSearch="true" ShowExtendButtons="true"
+       UseInjectDataService="true" AutoGenerateColumns="true">
+
+    <DetailRowTemplate>
+        @*<div>战斗角色: @typeof(EnumEducation).ToDescriptionString(context.BattleRoles.Count.ToString())</div>*@
+        <Table TItem="BattleRole" IsBordered="true" ShowToolbar="false" Items="@context.BattleRoles" AutoGenerateColumns=true>
+        </Table>
+    </DetailRowTemplate>
+</Table>

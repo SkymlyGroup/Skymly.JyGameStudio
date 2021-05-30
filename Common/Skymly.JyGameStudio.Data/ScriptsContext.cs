@@ -18,6 +18,9 @@ namespace Skymly.JyGameStudio.Data
        
         public DbSet<Aoyi> Aoyi { get; set; }
 
+        public DbSet<Battle> Battle { get; set; }
+        public DbSet<BattleRole> BattleRole { get; set; }
+
         public DbSet<AoyiCondition> AoyiCondition { get; set; }
     }
 }

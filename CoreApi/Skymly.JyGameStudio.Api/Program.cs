@@ -55,6 +55,11 @@ namespace Skymly.JyGameStudio.Api
                 {
                     webBuilder
                     .UseSerilog()
+                    .UseKestrel(option =>
+                    {
+                        option.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(5);
+                        option.Limits.RequestHeadersTimeout = TimeSpan.FromMinutes(5);
+                    })
                     .UseStartup<Startup>();
                 });
     }
