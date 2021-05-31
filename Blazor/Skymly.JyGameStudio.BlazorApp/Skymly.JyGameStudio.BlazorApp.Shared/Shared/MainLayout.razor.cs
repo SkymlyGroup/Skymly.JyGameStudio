@@ -59,7 +59,7 @@ namespace Skymly.JyGameStudio.BlazorApp.Shared.Shared
         {
             var menus = new List<MenuItem>
             {
-                new MenuItem() { Text = "首页", Icon = "fa fa-fw fa-fa", Url = "Index" },
+                new MenuItem() { Text = "首页", Icon = "fa fa-fw fa-fa", Url = "/" },
                 
                 //new MenuItem() { Text = "Table", Icon = "fa fa-fw fa-table", Url = "table" },
                 new MenuItem("原版游戏脚本",null,"fa fa-fw fa-check-square-o")

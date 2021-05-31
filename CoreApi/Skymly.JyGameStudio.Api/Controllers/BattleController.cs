@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 using Skymly.JyGameStudio.Data;
 using Skymly.JyGameStudio.Models;
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Encodings.Web;
@@ -27,9 +30,10 @@ namespace Skymly.JyGameStudio.Api.Controllers
     {
         private readonly ScriptsContext _context;
         private ILogger<BattleController> _logger;
-
-        public BattleController(ScriptsContext context, ILogger<BattleController> logger)
+        readonly IWebHostEnvironment _env;
+        public BattleController(ScriptsContext context, ILogger<BattleController> logger, IWebHostEnvironment env)
         {
+            _env = env;
             _context = context;
             _logger = logger;
         }
@@ -144,7 +148,7 @@ namespace Skymly.JyGameStudio.Api.Controllers
         /// <returns></returns>
         [HttpPost("ResetData")]
         //public async ValueTask<ActionResult<IEnumerable<Battle>>> ResetData()
-        public async Task<ActionResult<string>> ResetData()
+        public async Task<ActionResult<IEnumerable>> ResetData()
         {
             try
             {
@@ -162,9 +166,17 @@ namespace Skymly.JyGameStudio.Api.Controllers
                     PropertyNameCaseInsensitive = true,
                     WriteIndented = true
                 };
-                var json = JsonSerializer.Serialize(battles,options);
-                _logger.LogInformation(json);
-                return json;
+                var json = JsonSerializer.Serialize(battles, options);
+                _logger.LogDebug(json);
+                if (_env.IsDevelopment())
+                {
+                    return battles.Select(v => v.Key).ToList();
+                }
+                else
+                {
+                    return battles;
+                }
+
             }
             catch (Exception ex)
             {

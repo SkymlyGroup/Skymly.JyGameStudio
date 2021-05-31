@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 using BootstrapBlazor.Components;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Skymly.JyGameStudio.Models
 {
@@ -29,8 +30,7 @@ namespace Skymly.JyGameStudio.Models
         public Guid Id { get; set; } = Guid.NewGuid();
 
 
-        [Display(Name = "起手式")]
-        [AutoGenerateColumn(Order = 2, Filterable = true, Searchable = true)]
+        [Display(Name = "起手式"),AutoGenerateColumn(Order = 2, Filterable = true, Searchable = true)]
         [XmlAttribute("start")]
         public string Start { get; set; }
 
@@ -83,12 +83,22 @@ namespace Skymly.JyGameStudio.Models
 
         }
 
-
+        #region 导航属性
         [Display(Name = "主键")]
         [AutoGenerateColumn(Ignore = true)]
         [XmlIgnore]
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
+
+
+        [Display(Name = "所属奥义"),AutoGenerateColumn(Ignore = true)]
+        [XmlIgnore]
+        [JsonIgnore]
+        [Key]
+        public Aoyi Aoyi { get; set; }
+        #endregion
+
+
 
         [Display(Name = "外键")]
         [AutoGenerateColumn(Ignore = true)]

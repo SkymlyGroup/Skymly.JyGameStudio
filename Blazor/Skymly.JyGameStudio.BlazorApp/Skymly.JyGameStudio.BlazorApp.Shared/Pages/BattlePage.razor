@@ -7,8 +7,8 @@
        UseInjectDataService="true" AutoGenerateColumns="true">
 
     <DetailRowTemplate>
-        @*<div>战斗角色: @typeof(EnumEducation).ToDescriptionString(context.BattleRoles.Count.ToString())</div>*@
         <Table TItem="BattleRole" IsBordered="true" ShowToolbar="false" Items="@context.BattleRoles" AutoGenerateColumns=true>
         </Table>
     </DetailRowTemplate>
 </Table>
+

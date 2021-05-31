@@ -15,7 +15,6 @@ namespace Skymly.JyGameStudio.BlazorApp.Shared.Pages
             await base.OnInitializedAsync();
         }
 
-
         private static IEnumerable<int> PageItemsSource => new int[] { 10, 20, 100, 500 };
     }
 }

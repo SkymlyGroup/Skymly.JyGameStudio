@@ -7,10 +7,9 @@
 	   UseInjectDataService="true" AutoGenerateColumns="true">
 
 	<DetailRowTemplate>
-		@*<div>奥义条件: @typeof(EnumEducation).ToDescriptionString(context.AoyiConditions.Count.ToString())</div>*@
-		<Table TItem="AoyiCondition" IsBordered="true" ShowToolbar="false" Items="@context.AoyiConditions" AutoGenerateColumns=true>
-		</Table>
-	</DetailRowTemplate>
+        <Table TItem="AoyiCondition" IsBordered="true" ShowToolbar="false" Items="@context.AoyiConditions" AutoGenerateColumns=true>
+        </Table>
+</DetailRowTemplate>
 </Table>
 @code{
 	

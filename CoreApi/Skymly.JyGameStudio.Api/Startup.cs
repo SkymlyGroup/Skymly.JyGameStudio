@@ -8,18 +8,23 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Serialization;
 using Skymly.JyGameStudio.Data;
 using Serilog;
 using LogDashboard;
 using LogDashboard.Authorization.Filters;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System.ComponentModel;
+using Microsoft.OpenApi.Interfaces;
+using Microsoft.OpenApi.Extensions;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Microsoft.OpenApi.Any;
 
 namespace Skymly.JyGameStudio.Api
 {
@@ -57,11 +62,29 @@ namespace Skymly.JyGameStudio.Api
                            .Build();
                 });
             });
-            services.AddControllers().AddJsonOptions(opt => opt.JsonSerializerOptions.PropertyNamingPolicy = null);//保留Json大小写原样
+            services.AddControllers()
+                    //.AddJsonOptions(opt => opt.JsonSerializerOptions.PropertyNamingPolicy = null);
+                    .AddNewtonsoftJson(options =>
+                    {
+                        options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                    });
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Skymly.JyGameStudio.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo()
+                {
+                    Version = "v1",
+                    Title = "Skymly.JyGameStudio.Api",
+                    Description = "JyGameStudio Open API",
+                    TermsOfService = new Uri("https://github.com/SkymlyGroup/Skymly.JyGameStudio"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "落笔",
+                        Email = "skym.ly@foxmail.com",
+                        Url = new Uri("http://182.254.145.138:12300/Index"),
+                    },
+                });
+                //c.SwaggerDoc("v1", new OpenApiInfo { Title = "Skymly.JyGameStudio.Api", Version = "v1" });
                 var xmlPath = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Skymly.JyGameStudio.Api.xml");
                 c.IncludeXmlComments(xmlPath);//启用swagger注释
             });
@@ -75,7 +98,6 @@ namespace Skymly.JyGameStudio.Api
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Skymly.JyGameStudio.Api v1"));
-
             /*
             if (env.IsDevelopment())
             {
