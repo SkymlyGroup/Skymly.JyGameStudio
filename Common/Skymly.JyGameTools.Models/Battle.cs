@@ -46,13 +46,21 @@ namespace Skymly.JyGameStudio.Models
         [XmlIgnore]
         [NotMapped]
         [AutoGenerateColumn(Ignore = true)]
-        public List<BattleRole> Friends => BattleRoles.Where(v => v.Team == "1").ToList();
+        public List<BattleRole> Friends
+        {
+            get => BattleRoles.Where(v => v.Team == "1").ToList();
+            set { }
+        }
 
         [JsonIgnore]
         [NotMapped]
         [XmlIgnore]
         [AutoGenerateColumn(Ignore = true)]
-        public List<BattleRole> Enemies => BattleRoles.Where(v => v.Team == "2").ToList();
+        public List<BattleRole> Enemies
+        {
+            get => BattleRoles.Where(v => v.Team == "2").ToList();
+            set { }
+        }
 
         [XmlArray(ElementName = "roles"), XmlArrayItem(ElementName = "role")]
         [AutoGenerateColumn(Ignore = true)]
@@ -127,11 +135,11 @@ namespace Skymly.JyGameStudio.Models
         [XmlIgnore]
         [NotMapped]
         [AutoGenerateColumn(Ignore = true)]
-        public bool IsBossSpecified { get => this.IsBoss; }
+        public bool IsBossSpecified { get => this.IsBoss; set { } }
         [NotMapped]
         [XmlIgnore]
         [AutoGenerateColumn(Ignore = true)]
-        public bool KeySpecified { get => !string.IsNullOrWhiteSpace(Team) || !string.IsNullOrWhiteSpace(Key); }
+        public bool KeySpecified { get => !string.IsNullOrWhiteSpace(Team) || !string.IsNullOrWhiteSpace(Key); set { } }
 
     }
 }

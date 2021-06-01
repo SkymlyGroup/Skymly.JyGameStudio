@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using static System.Net.Mime.MediaTypeNames;
+
 namespace Skymly.JyGameStudio.BlazorApp.Shared.Shared
 {
     /// <summary>
@@ -50,7 +52,8 @@ namespace Skymly.JyGameStudio.BlazorApp.Shared.Shared
             // 菜单获取可以通过数据库获取，此处为示例直接拼装的菜单集合
             TabItemTextDictionary = new()
             {
-                [""] = "Index"
+                [""] = "Index",
+                ["ModInfo"]="哈哈"
             };
             Menus = GetIconSideMenuItems();
         }
@@ -77,6 +80,10 @@ namespace Skymly.JyGameStudio.BlazorApp.Shared.Shared
                         new MenuItem() { Text = "角色", Icon = "fa fa-fw fa-table", Target="_blank" },
                         new MenuItem() { Text = "物品", Icon = "fa fa-fw fa-table", Target="_blank" },
                    }
+                },
+                new MenuItem()
+                {
+                    Text="Mod信息",Icon="fa fa-fw fa-check-square-o",Url="/ModInfo"
                 },
                 new MenuItem("其他页面",null, "fa fa-fw fa-fa")
                 {

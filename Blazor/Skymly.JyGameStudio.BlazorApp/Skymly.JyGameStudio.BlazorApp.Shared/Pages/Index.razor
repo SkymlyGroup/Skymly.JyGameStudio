@@ -1,28 +1,48 @@
 ﻿@page "/"
 
+
 <h1>Hello, JyGameStudio!</h1>
 
-<a style="font-size:large" href="https://github.com/SkymlyGroup/Skymly.JyGameStudio" target="_blank">开源地址(Github)</a>
-<br>
-<a style="font-size:large" href="http://182.254.145.138:12300/Index" target="_blank">BlazorApp地址</a>
-<br>
-<a style="font-size:large" href="http://182.254.145.138:12345/swagger/index.html" target="_blank">开放API接口</a>
-<br>
-<a style="font-size:large" href="http://182.254.145.138:12300/LogDashboard" target="_blank">BlazorApp日志(admin:123456)</a>
-<br>
-<a style="font-size:large" href="http://182.254.145.138:12345/LogDashboard" target="_blank">API接口日志(admin:123456)</a>
-<br>
-<a style="font-size:large" href="http://182.254.145.138:5341" target="_blank">全部日志(admin:123456)</a>
-<br>
-<a style="font-size:large">Windows客户端(WPF)</a>
-<br>
-<a style="font-size:large">Windows客户端(MAUI)</a>
-<br>
-<a>Android客户端(Xamarin.Forms)</a>
-<br>
-<a style="font-size:large">Android客户端(MAUI)</a>
-<br>
-<a style="font-size:large">UWP手机客户端(Xamarin.Forms)</a>
-<br>
-<a style="font-size:large">UWP手机客户端(MAUI)</a>
-<br>
+<Divider />
+<Nav style="font-size:24px" Items="@Items.Take(3)" IsVertical="true">
+
+</Nav>
+<Divider />
+
+<div style="margin-top:20px">
+    <h3>日志相关(用户名：admin 密码：123456)</h3>
+    <div style="align-items:flex-start">
+        <Badge Color="Color.Secondary"><h4>Log</h4></Badge>
+        <Badge Color="Color.Secondary"><h4>Serilog</h4></Badge>
+        <Badge Color="Color.Secondary"><h4>LogDashboard</h4></Badge>
+        <Badge Color="Color.Secondary"><h4>Seq</h4></Badge>
+    </div>
+    <Nav style="font-size:24px" Items="@Items.Skip(3)" IsVertical="true">
+    </Nav>
+</div>
+<Divider />
+
+@*<a style="font-size:large" href="https://github.com/SkymlyGroup/Skymly.JyGameStudio" target="_blank">开源地址(Github)</a>
+    <br>
+    <a style="font-size:large" href="http://182.254.145.138:12300/Index" target="_blank">BlazorApp地址</a>
+    <br>
+    <a style="font-size:large" href="http://182.254.145.138:12345/swagger/index.html" target="_blank">开放API接口</a>
+    <br>
+    <a style="font-size:large" href="http://182.254.145.138:12300/LogDashboard" target="_blank">BlazorApp日志(admin:123456)</a>
+    <br>
+    <a style="font-size:large" href="http://182.254.145.138:12345/LogDashboard" target="_blank">API接口日志(admin:123456)</a>
+    <br>
+    <a style="font-size:large" href="http://182.254.145.138:5341" target="_blank">全部日志(admin:123456)</a>
+    <br>
+    <a style="font-size:large">Windows客户端(WPF)</a>
+    <br>
+    <a style="font-size:large">Windows客户端(MAUI)</a>
+    <br>
+    <a>Android客户端(Xamarin.Forms)</a>
+    <br>
+    <a style="font-size:large">Android客户端(MAUI)</a>
+    <br>
+    <a style="font-size:large">UWP手机客户端(Xamarin.Forms)</a>
+    <br>
+    <a style="font-size:large">UWP手机客户端(MAUI)</a>
+    <br>*@
