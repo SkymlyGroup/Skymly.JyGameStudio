@@ -25,6 +25,8 @@ using Microsoft.OpenApi.Interfaces;
 using Microsoft.OpenApi.Extensions;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.OpenApi.Any;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.FileProviders;
 
 namespace Skymly.JyGameStudio.Api
 {
@@ -49,7 +51,6 @@ namespace Skymly.JyGameStudio.Api
             {
                 opt.AddAuthorizationFilter(new LogDashboardBasicAuthFilter("admin", "123456"));
             });
-
             services.AddCors(options =>
             {
                 options.AddPolicy(AllowSpecificOrigins,
@@ -68,7 +69,6 @@ namespace Skymly.JyGameStudio.Api
                     {
                         options.SerializerSettings.ContractResolver = new DefaultContractResolver();
                     });
-
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo()
@@ -88,7 +88,6 @@ namespace Skymly.JyGameStudio.Api
                 var xmlPath = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Skymly.JyGameStudio.Api.xml");
                 c.IncludeXmlComments(xmlPath);//启用swagger注释
             });
-
             services.AddScoped<ScriptsContext>();
         }
 
@@ -114,6 +113,14 @@ namespace Skymly.JyGameStudio.Api
             app.UseLogDashboard();
 
             app.UseStaticFiles();
+
+            app.UseFileServer(new FileServerOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),"Mod")),
+                RequestPath = new PathString("/Mod"),
+                EnableDirectoryBrowsing = true,
+                
+            });
 
             app.UseCors(AllowSpecificOrigins);
 

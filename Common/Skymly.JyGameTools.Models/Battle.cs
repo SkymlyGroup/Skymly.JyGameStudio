@@ -66,7 +66,6 @@ namespace Skymly.JyGameStudio.Models
         [AutoGenerateColumn(Ignore = true)]
         public List<BattleRole> BattleRoles { get; set; } = new();
 
-
         [NotMapped]
         [XmlArray(ElementName = "random"), XmlArrayItem(ElementName = "role")]
         [AutoGenerateColumn(Ignore = true)]
@@ -124,7 +123,7 @@ namespace Skymly.JyGameStudio.Models
         [XmlAttribute("x")]
         public string X { get; set; }
 
-        [Display(Name = "是Boss"), AutoGenerateColumn(Order = 10, Filterable = true, Searchable = false, ComponentType = typeof(Switch))]
+        [Display(Name = "是否为Boss"), AutoGenerateColumn(Order = 10, Filterable = true, Searchable = false, ComponentType = typeof(Switch))]
         [XmlAttribute("boss")]
         public bool IsBoss { get; set; }
 

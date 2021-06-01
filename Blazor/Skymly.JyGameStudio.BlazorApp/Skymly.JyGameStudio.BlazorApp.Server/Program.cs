@@ -32,6 +32,7 @@ namespace Skymly.JyGameStudio.BlazorApp.Server
             {
                 Log.Information("Starting web host");
                 CreateHostBuilder(args).Build().Run();
+                AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             }
             catch (Exception ex)
             {
@@ -41,6 +42,11 @@ namespace Skymly.JyGameStudio.BlazorApp.Server
             {
                 Log.CloseAndFlush();
             }
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Log.Error("UnhandledException:"+ e.ToString());
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
