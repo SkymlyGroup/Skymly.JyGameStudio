@@ -33,7 +33,6 @@ namespace Skymly.JyGameStudio.Api
                             rollingInterval: RollingInterval.Day,
                             outputTemplate: "{Timestamp:HH:mm} || {Level} || {SourceContext:l} || {Message} || {Exception} ||end {NewLine}")
                 .CreateLogger();
-
             try
             {
                 Log.Information("Starting web host");
@@ -55,11 +54,11 @@ namespace Skymly.JyGameStudio.Api
                 {
                     webBuilder
                     .UseSerilog()
-                    .UseKestrel(option =>
-                    {
-                        option.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(5);
-                        option.Limits.RequestHeadersTimeout = TimeSpan.FromMinutes(5);
-                    })
+                    //.UseKestrel(option =>
+                    //{
+                    //    option.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(5);
+                    //    option.Limits.RequestHeadersTimeout = TimeSpan.FromMinutes(5);
+                    //})
                     .UseStartup<Startup>();
                 });
     }

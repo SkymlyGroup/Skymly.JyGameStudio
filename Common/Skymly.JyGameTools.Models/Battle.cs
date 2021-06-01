@@ -46,18 +46,17 @@ namespace Skymly.JyGameStudio.Models
         [XmlIgnore]
         [NotMapped]
         [AutoGenerateColumn(Ignore = true)]
-        public List<BattleRole> Friends => BattleRoles.Where(v => v.Team == "1").ToList();
+        public List<BattleRole> Friends { get => BattleRoles.Where(v => v.Team == "1").ToList(); set { } }
 
         [JsonIgnore]
         [NotMapped]
         [XmlIgnore]
         [AutoGenerateColumn(Ignore = true)]
-        public List<BattleRole> Enemies => BattleRoles.Where(v => v.Team == "2").ToList();
-
+        public List<BattleRole> Enemies { get => BattleRoles.Where(v => v.Team == "2").ToList(); set { } }
+        
         [XmlArray(ElementName = "roles"), XmlArrayItem(ElementName = "role")]
         [AutoGenerateColumn(Ignore = true)]
         public List<BattleRole> BattleRoles { get; set; } = new();
-
 
         [NotMapped]
         [XmlArray(ElementName = "random"), XmlArrayItem(ElementName = "role")]
@@ -116,7 +115,7 @@ namespace Skymly.JyGameStudio.Models
         [XmlAttribute("x")]
         public string X { get; set; }
 
-        [Display(Name = "是Boss"), AutoGenerateColumn(Order = 10, Filterable = true, Searchable = false, ComponentType = typeof(Switch))]
+        [Display(Name = "是否为Boss"), AutoGenerateColumn(Order = 10, Filterable = true, Searchable = false, ComponentType = typeof(Switch))]
         [XmlAttribute("boss")]
         public bool IsBoss { get; set; }
 

@@ -4,14 +4,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-
+using Newtonsoft.Json;
 using Skymly.JyGameStudio.Data;
 using Skymly.JyGameStudio.Models;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
@@ -143,12 +145,12 @@ namespace Skymly.JyGameStudio.Api.Controllers
         }
 
         /// <summary>
-        /// 重置数据库
+        /// 重置数据
         /// </summary>
         /// <returns></returns>
         [HttpPost("ResetData")]
         //public async ValueTask<ActionResult<IEnumerable<Battle>>> ResetData()
-        public async Task<ActionResult<IEnumerable>> ResetData()
+        public async Task<IActionResult> ResetData()
         {
             try
             {
@@ -159,29 +161,43 @@ namespace Skymly.JyGameStudio.Api.Controllers
                 var battles = XmlSerializeTool.DeserializeFromString<BattleRoot>(xml).Battles;
                 await _context.AddRangeAsync(battles);
                 await _context.SaveChangesAsync();
-                JsonSerializerOptions options = new JsonSerializerOptions()
-                {
-                    Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                    PropertyNameCaseInsensitive = true,
-                    WriteIndented = true
-                };
-                var json = JsonSerializer.Serialize(battles, options);
-                _logger.LogDebug(json);
-                if (_env.IsDevelopment())
-                {
-                    return battles.Select(v => v.Key).ToList();
-                }
-                else
-                {
-                    return battles;
-                }
 
+                //JsonSerializerOptions options = new JsonSerializerOptions()
+                //{
+                //    Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+                //    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                //    PropertyNameCaseInsensitive = true,
+                //    WriteIndented = true
+                //};
+                //var json = System.Text.Json.JsonSerializer.Serialize(battles, options);
+
+                ////System.Text.Json
+                //var json1 = System.Text.Json.JsonSerializer.Serialize(battles);//序列化
+                //List<Battle> battles1 = System.Text.Json.JsonSerializer.Deserialize<List<Battle>>(json1);//反序列化
+
+                ////Newtonsoft.Json
+                //var json2 = Newtonsoft.Json.JsonConvert.SerializeObject(battles);//序列化
+                //List<Battle> battles2 = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Battle>>(json2);//反序列化
+                var result = new
+                {
+                    Message = "重置数据成功",
+                    Success = true,
+                    Battle = await _context.Battle.CountAsync(),
+                    BattleRole = await _context.BattleRole.CountAsync()
+                };
+                _logger.LogInformation(JsonConvert.SerializeObject(result, Formatting.Indented));
+                return Ok(result);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.Message);
-                return BadRequest(ex);
+                var result = new
+                {
+                    Message = "重置数据失败",
+                    Success = false,
+                    Exception = ex,
+                };
+                _logger.LogError(ex, ex.Message);
+                return BadRequest(result);
             }
         }
 

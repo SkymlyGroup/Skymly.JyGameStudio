@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Http;
@@ -8,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.Web.CodeGeneration;
+
+using Newtonsoft.Json;
 
 using Skymly.JyGameStudio.Data;
 using Skymly.JyGameStudio.Models;
@@ -62,17 +65,15 @@ namespace Skymly.JyGameStudio.Api.Controllers
         public async Task<ActionResult<Aoyi>> GetAoyi(Guid id)
         {
             var aoyi = await _context.Aoyi.Include(v => v.AoyiConditions).FirstOrDefaultAsync(v => v.Id == id);
-
-            if (aoyi == null)
-            {
-                return NotFound();
-            }
-
-            return aoyi;
+            return aoyi is null ? NotFound() : aoyi;
         }
 
-        // PUT: api/Aoyi/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// 根据Id,修改
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="aoyi"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAoyi(Guid id, Aoyi aoyi)
         {
@@ -80,9 +81,7 @@ namespace Skymly.JyGameStudio.Api.Controllers
             {
                 return BadRequest();
             }
-
             _context.Entry(aoyi).State = EntityState.Modified;
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -102,8 +101,12 @@ namespace Skymly.JyGameStudio.Api.Controllers
             return NoContent();
         }
 
-        // POST: api/Aoyi
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
+        /// <summary>
+        /// 新增
+        /// </summary>
+        /// <param name="aoyi"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Aoyi>> PostAoyi(Aoyi aoyi)
         {
@@ -113,7 +116,11 @@ namespace Skymly.JyGameStudio.Api.Controllers
             return CreatedAtAction(nameof(GetAoyi), new { id = aoyi.Id }, aoyi);
         }
 
-        // DELETE: api/Aoyi/5
+        /// <summary>
+        /// 根据Id删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAoyi(Guid id)
         {
@@ -133,8 +140,12 @@ namespace Skymly.JyGameStudio.Api.Controllers
             return _context.Aoyi.Any(e => e.Id == id);
         }
 
+        /// <summary>
+        /// 重置数据
+        /// </summary>
+        /// <returns></returns>
         [HttpPost("ResetData")]
-        public async ValueTask<ActionResult<IEnumerable<Aoyi>>> ResetData()
+        public async ValueTask<IActionResult> ResetData()
         {
             try
             {
@@ -145,12 +156,26 @@ namespace Skymly.JyGameStudio.Api.Controllers
                 var aoyis = XmlSerializeTool.DeserializeFromString<AoyiRoot>(xml).Aoyis;
                 await _context.AddRangeAsync(aoyis);
                 await _context.SaveChangesAsync();
-                return aoyis;
+                var result = new
+                {
+                    Message = "重置数据成功",
+                    Success = true,
+                    Aoyi = await _context.Aoyi.CountAsync(),
+                    AoyiCondition = await _context.AoyiCondition.CountAsync()
+                };
+                _logger.LogInformation(JsonConvert.SerializeObject(result, Formatting.Indented));
+                return Ok(result);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.Message);
-                return BadRequest(ex);
+                var result = new
+                {
+                    Message = "重置数据失败",
+                    Success = false,
+                    Exception = ex,
+                };
+                _logger.LogError(ex, ex.Message);
+                return BadRequest(result);
             }
         }
 

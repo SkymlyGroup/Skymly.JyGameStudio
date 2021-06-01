@@ -96,15 +96,17 @@ namespace Skymly.JyGameStudio.Models
         [JsonIgnore]
         [Key]
         public Aoyi Aoyi { get; set; }
-        #endregion
-
-
 
         [Display(Name = "外键")]
         [AutoGenerateColumn(Ignore = true)]
         [XmlIgnore]
         [ForeignKey(nameof(Aoyi))]
         public Guid AoyiId { get; set; }
+        #endregion
+
+
+
+
 
         [AutoGenerateColumn(Order = 3, Filterable = true, Searchable = true)]
         [Display(Name = "条件等级")]
