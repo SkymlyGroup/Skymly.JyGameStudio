@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Skymly.JyGameStudio.Api.Controllers
+namespace Skymly.JyGameStudio.Api.Hosting.Controllers
 {
     [ApiController]
     [Route("[controller]")]

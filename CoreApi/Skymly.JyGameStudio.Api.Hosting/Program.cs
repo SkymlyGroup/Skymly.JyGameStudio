@@ -14,7 +14,7 @@ using System.IO;
 using System.Reflection;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Skymly.JyGameStudio.Api
+namespace Skymly.JyGameStudio.Api.Hosting
 {
     public class Program
     {

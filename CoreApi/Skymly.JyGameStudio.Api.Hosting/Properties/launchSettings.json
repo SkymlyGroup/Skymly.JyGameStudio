@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Skymly.JyGameStudio.Api": {
+    "Skymly.JyGameStudio.Api.Hosting": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

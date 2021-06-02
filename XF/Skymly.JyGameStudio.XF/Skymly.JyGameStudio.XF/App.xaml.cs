@@ -30,6 +30,7 @@ namespace Skymly.JyGameStudio.XF
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<AoyisPage, AoyisPageViewModel>();
         }
     }
 }

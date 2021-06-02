@@ -1,29 +1,29 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Skymly.JyGameStudio.Api</name>
+        <name>Skymly.JyGameStudio.Api.Hosting</name>
     </assembly>
     <members>
-        <member name="M:Skymly.JyGameStudio.Api.Controllers.AoyiController.GetAoyi">
+        <member name="M:Skymly.JyGameStudio.Api.Hosting.Controllers.AoyiController.GetAoyi">
             <summary>
             获取全部奥义
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Skymly.JyGameStudio.Api.Controllers.AoyiController.GetAoyiRoot">
+        <member name="M:Skymly.JyGameStudio.Api.Hosting.Controllers.AoyiController.GetAoyiRoot">
             <summary>
             获取全部奥义,XML结构
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Skymly.JyGameStudio.Api.Controllers.AoyiController.GetAoyi(System.Guid)">
+        <member name="M:Skymly.JyGameStudio.Api.Hosting.Controllers.AoyiController.GetAoyi(System.Guid)">
             <summary>
             根据ID获取奥义
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:Skymly.JyGameStudio.Api.Controllers.FileManagementController.GetXmlScript(System.String)">
+        <member name="M:Skymly.JyGameStudio.Api.Hosting.Controllers.FileManagementController.GetXmlScript(System.String)">
             <summary>
             下载XML脚本
             </summary>

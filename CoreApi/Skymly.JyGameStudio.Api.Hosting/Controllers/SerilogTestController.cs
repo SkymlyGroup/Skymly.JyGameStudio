@@ -10,7 +10,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace Skymly.JyGameStudio.Api.Controllers
+namespace Skymly.JyGameStudio.Api.Hosting.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

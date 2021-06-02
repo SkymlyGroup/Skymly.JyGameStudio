@@ -1,7 +1,7 @@
-﻿using BootstrapBlazor.Components;
-
-using Newtonsoft.Json;
-
+﻿using Newtonsoft.Json;
+#if NET5_0
+using BootstrapBlazor.Components;
+#endif
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -20,55 +20,71 @@ namespace Skymly.JyGameStudio.Models
         public Battle()
         {
         }
-
+#if NET5_0
+[AutoGenerateColumn(Ignore = true)]
+#endif
         [Key]
         [XmlIgnore]
-        [Display(Name = "主键"), AutoGenerateColumn(Ignore = true)]
+        [Display(Name = "主键")] 
         public Guid Id { get; set; } = Guid.NewGuid();
 
-        [Display(Name = "音乐"), AutoGenerateColumn(Order = 3, Filterable = false, Searchable = true)]
+#if NET5_0
+[AutoGenerateColumn(Order = 3, Filterable = false, Searchable = true)]
+#endif
+        [Display(Name = "音乐")] 
         [XmlAttribute("music")]
         public string Music { get; set; }
-
-        [Display(Name = "必须上场"), AutoGenerateColumn(Order = 4, Filterable = false, Searchable = true)]
+#if NET5_0
+ [AutoGenerateColumn(Order = 4, Filterable = false, Searchable = true)]
+#endif
+        [Display(Name = "必须上场")]
         [XmlAttribute("must")]
         public string Must { get; set; }
-
-        [Display(Name = "战斗名称"), AutoGenerateColumn(Order = 1, Filterable = true, Searchable = true)]
+#if NET5_0
+[AutoGenerateColumn(Order = 1, Filterable = true, Searchable = true)]
+#endif
+        [Display(Name = "战斗名称")] 
         [XmlAttribute("key")]
         public string Key { get; set; }
-
-        [Display(Name = "背景地图"), AutoGenerateColumn(Order = 2, Filterable = true, Searchable = true)]
+#if NET5_0
+[AutoGenerateColumn(Order = 2, Filterable = true, Searchable = true)]
+#endif
+        [Display(Name = "背景地图")] 
         [XmlAttribute("mapkey")]
         public string Mapkey { get; set; }
-
+#if NET5_0
+        [AutoGenerateColumn(Ignore = true)]
+#endif
         [JsonIgnore]
         [XmlIgnore]
         [NotMapped]
-        [AutoGenerateColumn(Ignore = true)]
         public List<BattleRole> Friends
         {
             get => BattleRoles.Where(v => v.Team == "1").ToList();
             set { }
         }
-
+#if NET5_0
+        [AutoGenerateColumn(Ignore = true)]
+#endif
         [JsonIgnore]
         [NotMapped]
         [XmlIgnore]
-        [AutoGenerateColumn(Ignore = true)]
         public List<BattleRole> Enemies
         {
             get => BattleRoles.Where(v => v.Team == "2").ToList();
             set { }
         }
-
-        [XmlArray(ElementName = "roles"), XmlArrayItem(ElementName = "role")]
+#if NET5_0
         [AutoGenerateColumn(Ignore = true)]
-        public List<BattleRole> BattleRoles { get; set; } = new();
+#endif
+        [XmlArray(ElementName = "roles"), XmlArrayItem(ElementName = "role")]
 
+        public List<BattleRole> BattleRoles { get; set; } = new();
+#if NET5_0
+        [AutoGenerateColumn(Ignore = true)]
+#endif
         [NotMapped]
         [XmlArray(ElementName = "random"), XmlArrayItem(ElementName = "role")]
-        [AutoGenerateColumn(Ignore = true)]
         public List<BattleRole> Randoms { get; set; } = new();
 
     }
@@ -80,64 +96,93 @@ namespace Skymly.JyGameStudio.Models
         public BattleRole()
         {
         }
-
-        [Display(Name = "主键"), AutoGenerateColumn(Ignore = true)]
+#if NET5_0
+        [AutoGenerateColumn(Ignore = true)]
+#endif
+        [Display(Name = "主键")]
         [XmlIgnore]
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
-
-        [Display(Name = "外键"), AutoGenerateColumn(Ignore = true)]
+#if NET5_0
+        [ AutoGenerateColumn(Ignore = true)]
+#endif
+        [Display(Name = "外键")]
         [XmlIgnore]
         [ForeignKey(nameof(Battle))]
         public Guid BattleId { get; set; }
-
-        [Display(Name = "Y"), AutoGenerateColumn(Order = 8, Filterable = true, Searchable = false)]
+#if NET5_0
+        [AutoGenerateColumn(Order = 8, Filterable = true, Searchable = false)]
+#endif
+        [Display(Name = "Y")]
         [XmlAttribute("y")]
         public string Y { get; set; }
-
-        [Display(Name = "面向"), AutoGenerateColumn(Order = 9, Filterable = true, Searchable = false)]
+#if NET5_0
+        [AutoGenerateColumn(Order = 9, Filterable = true, Searchable = false)]
+#endif
+        [Display(Name = "面向")] 
         [XmlAttribute("face")]
         public string Face { get; set; }
-
-        [Display(Name = "队伍"), AutoGenerateColumn(Order = 4, Filterable = true, Searchable = false)]
+#if NET5_0
+        [AutoGenerateColumn(Order = 4, Filterable = true, Searchable = false)]
+#endif
+        [Display(Name = "队伍")] 
         [XmlAttribute("team")]
         public string Team { get; set; }
-
-        [Display(Name = "角色Key"), AutoGenerateColumn(Order = 1, Filterable = true, Searchable = true)]
+#if NET5_0
+        [AutoGenerateColumn(Order = 1, Filterable = true, Searchable = true)]
+#endif
+        [Display(Name = "角色Key")] 
         [XmlAttribute("key")]
         public string Key { get; set; }
-
-        [Display(Name = "序号"), AutoGenerateColumn(Order = 3, Filterable = true, Searchable = false)]
+#if NET5_0
+        [AutoGenerateColumn(Order = 3, Filterable = true, Searchable = false)]
+#endif
+        [Display(Name = "序号")] 
         [XmlAttribute("index")]
         public string Index { get; set; }
-
-        [Display(Name = "角色Name"), AutoGenerateColumn(Order = 2, Filterable = true, Searchable = true)]
+#if NET5_0
+        [AutoGenerateColumn(Order = 2, Filterable = true, Searchable = true)]
+#endif
+        [Display(Name = "角色Name")]
         [XmlAttribute("name")]
         public string Name { get; set; }
-
-        [Display(Name = "等级"), AutoGenerateColumn(Order = 5, Filterable = true, Searchable = false)]
+#if NET5_0
+        [AutoGenerateColumn(Order = 5, Filterable = true, Searchable = false)]
+#endif
+        [Display(Name = "等级")] 
         [XmlAttribute("level")]
         public string Level { get; set; }
-
-        [Display(Name = "X"), AutoGenerateColumn(Order = 7, Filterable = true, Searchable = false)]
+#if NET5_0
+        [AutoGenerateColumn(Order = 7, Filterable = true, Searchable = false)]
+#endif
+        [Display(Name = "X")] 
         [XmlAttribute("x")]
         public string X { get; set; }
 
-        [Display(Name = "是否为Boss"), AutoGenerateColumn(Order = 10, Filterable = true, Searchable = false, ComponentType = typeof(Switch))]
+
+#if NET5_0
+        [AutoGenerateColumn(Order = 10, Filterable = true, Searchable = false, ComponentType = typeof(Switch))]
+#endif
+        [Display(Name = "是否为Boss")] 
         [XmlAttribute("boss")]
         public bool IsBoss { get; set; }
-
-        [Display(Name = "动画模型"), AutoGenerateColumn(Order = 6, Filterable = true, Searchable = true)]
+#if NET5_0
+        [AutoGenerateColumn(Order = 6, Filterable = true, Searchable = true)]
+#endif
+        [Display(Name = "动画模型")]
         [XmlAttribute("animation")]
         public string Animation { get; set; }
-
+#if NET5_0
+        [AutoGenerateColumn(Ignore = true)]
+#endif
         [XmlIgnore]
         [NotMapped]
-        [AutoGenerateColumn(Ignore = true)]
         public bool IsBossSpecified { get => this.IsBoss; set { } }
+#if NET5_0
+        [AutoGenerateColumn(Ignore = true)]
+#endif
         [NotMapped]
         [XmlIgnore]
-        [AutoGenerateColumn(Ignore = true)]
         public bool KeySpecified { get => !string.IsNullOrWhiteSpace(Team) || !string.IsNullOrWhiteSpace(Key); set { } }
 
     }

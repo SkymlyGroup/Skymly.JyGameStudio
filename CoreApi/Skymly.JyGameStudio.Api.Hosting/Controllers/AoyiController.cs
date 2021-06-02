@@ -16,7 +16,7 @@ using Skymly.JyGameStudio.Data;
 using Skymly.JyGameStudio.Models;
 
 using Tools;
-namespace Skymly.JyGameStudio.Api.Controllers
+namespace Skymly.JyGameStudio.Api.Hosting.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

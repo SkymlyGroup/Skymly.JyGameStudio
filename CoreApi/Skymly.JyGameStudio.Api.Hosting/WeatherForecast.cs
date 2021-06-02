@@ -1,6 +1,6 @@
 using System;
 
-namespace Skymly.JyGameStudio.Api
+namespace Skymly.JyGameStudio.Api.Hosting
 {
     public class WeatherForecast
     {

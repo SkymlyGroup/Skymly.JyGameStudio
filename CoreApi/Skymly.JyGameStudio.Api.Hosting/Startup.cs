@@ -28,7 +28,7 @@ using Microsoft.OpenApi.Any;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.FileProviders;
 
-namespace Skymly.JyGameStudio.Api
+namespace Skymly.JyGameStudio.Api.Hosting
 {
     public class Startup
     {
@@ -74,7 +74,7 @@ namespace Skymly.JyGameStudio.Api
                 c.SwaggerDoc("v1", new OpenApiInfo()
                 {
                     Version = "v1",
-                    Title = "Skymly.JyGameStudio.Api",
+                    Title = "Skymly.JyGameStudio.Api.Hosting",
                     Description = "JyGameStudio Open API",
                     TermsOfService = new Uri("https://github.com/SkymlyGroup/Skymly.JyGameStudio"),
                     Contact = new OpenApiContact
@@ -84,8 +84,8 @@ namespace Skymly.JyGameStudio.Api
                         Url = new Uri("http://182.254.145.138:12300/Index"),
                     },
                 });
-                //c.SwaggerDoc("v1", new OpenApiInfo { Title = "Skymly.JyGameStudio.Api", Version = "v1" });
-                var xmlPath = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Skymly.JyGameStudio.Api.xml");
+                //c.SwaggerDoc("v1", new OpenApiInfo { Title = "Skymly.JyGameStudio.Api.Hosting", Version = "v1" });
+                var xmlPath = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Skymly.JyGameStudio.Api.Hosting.xml");
                 c.IncludeXmlComments(xmlPath);//启用swagger注释
             });
             services.AddScoped<ScriptsContext>();
@@ -97,7 +97,7 @@ namespace Skymly.JyGameStudio.Api
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
             app.UseSwaggerUI(c => { 
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Skymly.JyGameStudio.Api v1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Skymly.JyGameStudio.Api.Hosting v1");
                 c.RoutePrefix = "OpenApi";
             }); 
             /*
@@ -105,7 +105,7 @@ namespace Skymly.JyGameStudio.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Skymly.JyGameStudio.Api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Skymly.JyGameStudio.Api.Hosting v1"));
             }
             else
             {

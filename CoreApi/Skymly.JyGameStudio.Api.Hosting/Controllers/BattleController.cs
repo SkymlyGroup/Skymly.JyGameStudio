@@ -21,7 +21,7 @@ using System.Threading.Tasks;
 
 using Tools;
 
-namespace Skymly.JyGameStudio.Api.Controllers
+namespace Skymly.JyGameStudio.Api.Hosting.Controllers
 {
     /// <summary>
     /// 战斗
