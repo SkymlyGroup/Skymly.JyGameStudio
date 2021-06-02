@@ -17,7 +17,7 @@ namespace Skymly.JyGameStudio.BlazorApp.Shared.Pages
         static NavLink GetItem(string content, string herf, string target = "_blank")
         {
             var link = new NavLink();
-            link.SetParametersAsync(ParameterView.FromDictionary(new Dictionary<string, object?>()
+            link.SetParametersAsync(ParameterView.FromDictionary(new Dictionary<string, object>()
             {
                 ["href"] = herf,
                 ["class"] = "nav-link nav-item",

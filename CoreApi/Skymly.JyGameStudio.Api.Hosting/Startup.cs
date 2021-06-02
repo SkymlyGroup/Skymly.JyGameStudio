@@ -81,11 +81,12 @@ namespace Skymly.JyGameStudio.Api.Hosting
                     {
                         Name = "落笔",
                         Email = "skym.ly@foxmail.com",
-                        Url = new Uri("http://182.254.145.138:12300/Index"),
+                        Url = new Uri("dotnet.games:12300/Index"),
                     },
                 });
                 //c.SwaggerDoc("v1", new OpenApiInfo { Title = "Skymly.JyGameStudio.Api.Hosting", Version = "v1" });
-                var xmlPath = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Skymly.JyGameStudio.Api.Hosting.xml");
+                var xamlName = Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location) + ".xml";
+                var xmlPath = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), xamlName);
                 c.IncludeXmlComments(xmlPath);//启用swagger注释
             });
             services.AddScoped<ScriptsContext>();
@@ -96,10 +97,11 @@ namespace Skymly.JyGameStudio.Api.Hosting
         {
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
-            app.UseSwaggerUI(c => { 
+            app.UseSwaggerUI(c =>
+            {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Skymly.JyGameStudio.Api.Hosting v1");
-                c.RoutePrefix = "OpenApi";
-            }); 
+                //c.RoutePrefix = "OpenApi";
+            });
             /*
             if (env.IsDevelopment())
             {

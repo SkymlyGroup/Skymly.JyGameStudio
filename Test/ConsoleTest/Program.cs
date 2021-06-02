@@ -5,6 +5,7 @@ using System.Dynamic;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace ConsoleTest
 {
@@ -14,6 +15,9 @@ namespace ConsoleTest
       
         static void Main(string[] args)
         {
+            var name = Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location);
+            Console.WriteLine(name);
         }
+
     }
 }
