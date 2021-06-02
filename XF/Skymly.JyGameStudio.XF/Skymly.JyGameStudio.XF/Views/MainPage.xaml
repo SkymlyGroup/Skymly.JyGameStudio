@@ -2,9 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Skymly.JyGameStudio.XF.Views.MainPage"
-             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:prism="http://prismlibrary.com" 
+             xmlns:viewmodels="clr-namespace:Skymly.JyGameStudio.XF.ViewModels" 
+             x:DataType="viewmodels:MainPageViewModel"
              Title="{Binding Title}">
-   
+
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <Label Text="Welcome to Xamarin Forms and Prism!" />
     </StackLayout>

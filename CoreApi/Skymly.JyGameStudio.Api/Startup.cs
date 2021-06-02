@@ -96,7 +96,10 @@ namespace Skymly.JyGameStudio.Api
         {
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Skymly.JyGameStudio.Api v1"));
+            app.UseSwaggerUI(c => { 
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Skymly.JyGameStudio.Api v1");
+                c.RoutePrefix = "OpenApi";
+            }); 
             /*
             if (env.IsDevelopment())
             {
@@ -116,10 +119,10 @@ namespace Skymly.JyGameStudio.Api
 
             app.UseFileServer(new FileServerOptions
             {
-                FileProvider = new PhysicalFileProvider(Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),"Mod")),
+                FileProvider = new PhysicalFileProvider(Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Mod")),
                 RequestPath = new PathString("/Mod"),
                 EnableDirectoryBrowsing = true,
-                
+
             });
 
             app.UseCors(AllowSpecificOrigins);

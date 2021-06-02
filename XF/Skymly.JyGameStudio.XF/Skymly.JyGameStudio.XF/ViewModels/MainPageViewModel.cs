@@ -1,7 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
-
+using Skymly.JyGameStudio.XF.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;

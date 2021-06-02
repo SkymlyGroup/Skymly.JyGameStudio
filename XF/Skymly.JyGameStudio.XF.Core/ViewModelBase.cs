@@ -1,27 +1,29 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using Prism.Navigation;
 
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Diagnostics;
 
-namespace Skymly.JyGameStudio.XF.ViewModels
+namespace Skymly.JyGameStudio.XF.Core
 {
     public class ViewModelBase : BindableBase, IInitialize, INavigationAware, IDestructible
     {
         protected INavigationService NavigationService { get; private set; }
-
-        private string _title;
-        public string Title
-        {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
-        }
-
         public ViewModelBase(INavigationService navigationService)
         {
             NavigationService = navigationService;
+        }
+
+        private bool isBusy;
+        public bool IsBusy { get => isBusy; set => SetProperty(ref isBusy, value); }
+
+        private string title;
+
+        public string Title { get => title; set => SetProperty(ref title, value); }
+
+        public virtual void Destroy()
+        {
+            Debug.WriteLine($"{GetType().FullName} {nameof(Destroy)}");
         }
 
         public virtual void Initialize(INavigationParameters parameters)
@@ -35,11 +37,6 @@ namespace Skymly.JyGameStudio.XF.ViewModels
         }
 
         public virtual void OnNavigatedTo(INavigationParameters parameters)
-        {
-
-        }
-
-        public virtual void Destroy()
         {
 
         }
