@@ -10,7 +10,7 @@ namespace Skymly.JyGameStudio.BlazorApp.Shared
     {
         private static string ProjectNmae { get; set; } = "Skymly.JyGameStudio";
 
-        private static string Host { get; set; } = "http://6game.xyz";
+        private static string Host { get; set; } = "http://dotnet.games";
 
         private static int ApiPort { get; set; } = 12345;
 

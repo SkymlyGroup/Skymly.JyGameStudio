@@ -5,8 +5,9 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\SkymData\Skymly.JyGameStudio.Client\Skymly.JyGameStudio.Api\Skymly.JyGameStudio.Api.xml</DocumentationFile>
+    <DocumentationFile>bin/Debug/net5.0/Skymly.JyGameStudio.Api.Hosting.xml</DocumentationFile>
     <NoWarn>1701;1702;IL2026;1591;</NoWarn>
+    <OutputPath></OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -2464,9 +2465,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Mod\Scripts\towers.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Skymly.JyGameStudio.Api.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
